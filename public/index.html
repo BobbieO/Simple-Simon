@@ -2,8 +2,87 @@
 <html>
 <head>
     <title>Simple Simon</title>
+    <meta charset="utf-8">
+
+    <!-- google font -->
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- my css -->
+    <link rel="stylesheet" href="/css/simplesimon.css">
 </head>
+
 <body>
-    <p>Hey!</p>
+<div class="container">
+    <div class="row btn-div">
+        <button id="start">Start the Game</button>
+    </div>
+    <div class="row box-div">
+        <div>
+            <div class="box" id="yellow"></div>
+            <div class="box" id="blue"></div>
+            <div class="box" id="red"></div>
+            <div class="box" id="green"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript">
+(function(){
+"use strict";
+
+    // empty var to store sequence of lights
+    var sequence = [];
+
+    // var for later grabbing all elements by click box (that's an array)
+    var boxes = $(".box");
+        console.log(boxes);
+
+    // wrap items that select and random, click event triggers function
+    $("#start").click(function(event) { 
+
+        // randomize a numerical value from 0-3
+        var random = Math.floor(Math.random()*4);
+            console.log(boxes[random]);
+
+        //fade out-in
+        $(boxes[random]).fadeOut();
+        $(boxes[random]).fadeIn();
+
+        sequence.push(random);
+
+
+
+
+// needs to be empty at first and then pushes new element
+
+// loop through for animation of those pushed on to sequence
+
+ 
+    }); //end of #start fxn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ })();
+ </script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+#yellow {
+    background-color: yellow;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+#red {
+    background-color: red;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+#blue {
+    background-color: blue;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+#green {
+    background-color: green;
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+.box {
+    display: inline-block;
+    float: left;
+    margin-top: 50px;
+}
+
+.btn-div {
+    margin-top: 100px;
+}
