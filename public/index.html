@@ -37,15 +37,12 @@
     // computer's lights
     var sequence = [1,2];
 
-
-
+    // variable to check against the sequence's index
     var sequenceIndexCheck = 0;
 
     // var for later grabbing all elements by click box; an array.
     var boxes = $(".box");
-        // console.log(boxes);
 
-    
     var coreGame = function() {
         // randomize a numerical value from 0-3
         var random = Math.floor(Math.random()*4);
@@ -54,13 +51,15 @@
         // to concatenate the lights on to each other
         sequence.push(random);
         
+        // local var
         var index = 0;
         var makeLights = setInterval(function() {
-            // then fade out-in
+            //sets fade in-out on the boxes
             $(boxes[ sequence[index] ]).fadeOut();
             $(boxes[ sequence[index] ]).fadeIn();
             index++;
 
+            // stops the intervalling
             if (index==sequence.length) {
                 clearInterval(makeLights);
             }  
@@ -69,29 +68,28 @@
 
     // click listener for boxes
     boxes.click(function() {
-        // console.log(this);
+        // if the computer-light-value-index is same as data-index-of-box-user-clicked,
+        // add more to lights
         if (sequence[sequenceIndexCheck] == $(this).data("index") ){
             console.log("correct");
             sequenceIndexCheck++;
+
+            // if same, run coreGame again, reset index for another iteration of lights
             if (sequence.length == sequenceIndexCheck) {
                 console.log("entered");
                 coreGame();
                 sequenceIndexCheck = 0;
             };
+        // if NOT the same, do fail code
         } else {
             console.log("wrong");
         }
     });
 
-    //function starts on start-click
+    // to start game function when start button clicked
     $("#start").click(function(event) { 
         coreGame();
     })
-
-
-
-
-
  })();
  </script>
 </body>
