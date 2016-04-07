@@ -19,10 +19,10 @@
     </div>
     <div class="row box-div">
         <div>
-            <div class="box" id="yellow"></div>
-            <div class="box" id="blue"></div>
-            <div class="box" id="red"></div>
-            <div class="box" id="green"></div>
+            <div class="box" id="yellow" data-index="0"></div>
+            <div class="box" id="blue" data-index="1"></div>
+            <div class="box" id="red" data-index="2"></div>
+            <div class="box" id="green" data-index="3"></div>
         </div>
     </div>
 </div>
@@ -34,49 +34,59 @@
 (function(){
 "use strict";
 
-    // empty var to store sequence of lights
-    var sequence = [];
+    // computer's lights
+    var sequence = [1,2];
 
-    // var for later grabbing all elements by click box (that's an array)
+
+
+    var sequenceIndexCheck = 0;
+
+    // var for later grabbing all elements by click box; an array.
     var boxes = $(".box");
-        console.log(boxes);
+        // console.log(boxes);
 
-    // wrap items that select and random, click event triggers function
-    $("#start").click(function(event) { 
-
+    
+    var coreGame = function() {
         // randomize a numerical value from 0-3
         var random = Math.floor(Math.random()*4);
             console.log(boxes[random]);
 
-        //fade out-in
-        $(boxes[random]).fadeOut();
-        $(boxes[random]).fadeIn();
-
+        // to concatenate the lights on to each other
         sequence.push(random);
+        
+        var index = 0;
+        var makeLights = setInterval(function() {
+            // then fade out-in
+            $(boxes[ sequence[index] ]).fadeOut();
+            $(boxes[ sequence[index] ]).fadeIn();
+            index++;
 
+            if (index==sequence.length) {
+                clearInterval(makeLights);
+            }  
+        }, 1000);
+    };
 
+    // click listener for boxes
+    boxes.click(function() {
+        // console.log(this);
+        if (sequence[sequenceIndexCheck] == $(this).data("index") ){
+            console.log("correct");
+            sequenceIndexCheck++;
+            if (sequence.length == sequenceIndexCheck) {
+                console.log("entered");
+                coreGame();
+                sequenceIndexCheck = 0;
+            };
+        } else {
+            console.log("wrong");
+        }
+    });
 
-
-// needs to be empty at first and then pushes new element
-
-// loop through for animation of those pushed on to sequence
-
- 
-    }); //end of #start fxn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //function starts on start-click
+    $("#start").click(function(event) { 
+        coreGame();
+    })
 
 
 
