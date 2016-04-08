@@ -16,24 +16,45 @@
 
 <body>
 <div class="container">
+
     <div class="row">
-        <div class="col-med-8 col-md-offset-2 center">
-            <div class="row btn-div">
+        <div class="col-md-4">
+            <p>Simple</p>
+            <p>Simon</p>
+        </div>
+
+        <div class="col-md-4 col-md-offset-4">
+            <div>
+                <p class="status"></p>
+                <p class="status2"></p>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="row btn-div center">
                 <button id="start">Start the Game</button>
             </div>
             <div class="row box-div">
-                <div class="space">
+                <div class="space center">
                     <div class="box" id="yellow" data-index="0"></div>
                     <div class="box" id="blue" data-index="1"></div>
                 </div>
-                <div>
+                <div class="center">
                     <div class="box" id="red" data-index="2"></div>
                     <div class="box" id="green" data-index="3"></div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
+<audio preload="auto" id="beep">
+    <source src="/sound/beep.mp3" type="audio/mpeg">
+</audio>
 
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -50,6 +71,11 @@
 
     // var for later grabbing all elements by class, click box; an array.
     var boxes = $(".box");
+
+    // to play sound
+    function playSound() {
+        $("#beep")[0].play();
+    };
 
     var coreGame = function() {
         // randomize a numerical value from 0-3
@@ -74,28 +100,40 @@
         }, 1000);
     };
 
+    // variable for game count
+    var gameNum = 0;
     // click listener for boxes
     boxes.click(function() {
+        playSound();
         // if the computer-light-value-index is same as data-index-of-box-user-clicked,
         // add more to lights
         if (sequence[sequenceIndexCheck] == $(this).data("index") ){
-            console.log("correct");
             sequenceIndexCheck++;
 
             // if same, run coreGame again, reset index for another iteration of lights
             if (sequence.length == sequenceIndexCheck) {
-                console.log("entered");
                 coreGame();
                 sequenceIndexCheck = 0;
+                gameNum++;
+                $(".status").html("Success!");
+                $(".status2").html("Round " + gameNum);
             };
         // if NOT the same, do fail code
         } else {
             console.log("wrong");
+            $(".status").html("Oops!");
+            $(".status2").html("Try Again");
         }
     });
 
-    // to start game function when start button clicked
+    // to start/restart game function when start button clicked
     $("#start").click(function(event) { 
+        sequence = [];
+        sequenceIndexCheck = 0;
+        gameNum = 0;
+        $(".status").html("");
+        $(".status2").html("");
+        playSound();
         coreGame();
     })
  })();
