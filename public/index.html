@@ -5,24 +5,32 @@
     <meta charset="utf-8">
 
     <!-- google font -->
-    
+    <link href='https://fonts.googleapis.com/css?family=Euphoria+Script' rel='stylesheet' type='text/css'>
+
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- my css -->
+
     <link rel="stylesheet" href="/css/simplesimon.css">
 </head>
 
 <body>
 <div class="container">
-    <div class="row btn-div">
-        <button id="start">Start the Game</button>
-    </div>
-    <div class="row box-div">
-        <div>
-            <div class="box" id="yellow" data-index="0"></div>
-            <div class="box" id="blue" data-index="1"></div>
-            <div class="box" id="red" data-index="2"></div>
-            <div class="box" id="green" data-index="3"></div>
+    <div class="row">
+        <div class="col-med-8 col-md-offset-2 center">
+            <div class="row btn-div">
+                <button id="start">Start the Game</button>
+            </div>
+            <div class="row box-div">
+                <div class="space">
+                    <div class="box" id="yellow" data-index="0"></div>
+                    <div class="box" id="blue" data-index="1"></div>
+                </div>
+                <div>
+                    <div class="box" id="red" data-index="2"></div>
+                    <div class="box" id="green" data-index="3"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -35,12 +43,12 @@
 "use strict";
 
     // computer's lights
-    var sequence = [1,2];
+    var sequence = [];
 
     // variable to check against the sequence's index
     var sequenceIndexCheck = 0;
 
-    // var for later grabbing all elements by click box; an array.
+    // var for later grabbing all elements by class, click box; an array.
     var boxes = $(".box");
 
     var coreGame = function() {
