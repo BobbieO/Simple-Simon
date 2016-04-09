@@ -3,7 +3,7 @@ body {
 }
 
 p {
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: bold;
 }
 
@@ -19,7 +19,7 @@ p {
     background: url(/img/stainedColumns.jpg) no-repeat center;
     height: 900px;
     width: 100%;
-    opacity: 0.8;
+    opacity: 0.7;
     top: 0;
     left: 0;
     position: absolute;
@@ -31,27 +31,27 @@ p {
 }
 
 #yellow {
-    background-color: #b75a0f;
+    background: -webkit-radial-gradient(#d39c6f 5%, #c57a3e 15%, #b75a0f 60%); 
     border-radius: 66px 66px 5px 66px;
-    box-shadow: 2px 2px 4px #9aa1a2;
+    box-shadow: 2px 2px 4px black;
 }
 
 #red {
-    background-color: #860000;
+    background: -webkit-radial-gradient(#b66666 5%, #9e3232 15%, #860000 60%);
     border-radius: 66px 5px 66px 66px;
-    box-shadow: 2px 2px 4px #9aa1a2;
+    box-shadow: 2px 2px 4px black;
 }
 
 #blue {
-    background-color: #216ac7;
+    background: -webkit-radial-gradient(#79a5dd 5%, #4d87d2 15%, #216ac7 60%);
     border-radius: 66px 66px 66px 5px;
-    box-shadow: 2px 2px 4px #9aa1a2;
+    box-shadow: 2px 2px 4px black;
 }
 
 #green {
-    background-color: #5ca244;
+    background: -webkit-radial-gradient(#9dc78e 5%, #7cb469 15%, #5ca244 60%); 
     border-radius: 5px 66px 66px 66px;
-    box-shadow: 2px 2px 4px #9aa1a2;
+    box-shadow: 2px 2px 4px black;
 }
 
 .box {
@@ -77,11 +77,12 @@ button {
     background-color: #c1cacb;
     border-radius: 6px;
     text-shadow: 2px 2px 4px #9aa1a2;
-    box-shadow: 2px 2px 4px #9aa1a2;
+    box-shadow: 2px 2px 4px black;
 }
 
 .status, .status2 {
     text-align: right;
-    font-size: 2.3em;
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
