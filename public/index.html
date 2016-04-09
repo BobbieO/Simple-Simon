@@ -53,7 +53,11 @@
 </div>
 
 <audio preload="auto" id="beep">
-    <source src="/sound/beep.mp3" type="audio/mpeg">
+    <source src="/sound/churchbell.mp3" type="audio/mpeg">
+</audio>
+
+<audio preload="auto" id="fail">
+    <source src="/sound/fail-trombone.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -73,9 +77,13 @@
     var boxes = $(".box");
 
     // to play sound
-    function playSound() {
+    function playSuccess() {
         $("#beep")[0].play();
     };
+
+    function playFail() {
+        $("#fail")[0].play();
+    }
 
     var coreGame = function() {
         // randomize a numerical value from 0-3
@@ -104,10 +112,10 @@
     var gameNum = 0;
     // click listener for boxes
     boxes.click(function() {
-        playSound();
         // if the computer-light-value-index is same as data-index-of-box-user-clicked,
         // add more to lights
         if (sequence[sequenceIndexCheck] == $(this).data("index") ){
+            playSuccess();
             sequenceIndexCheck++;
 
             // if same, run coreGame again, reset index for another iteration of lights
@@ -121,6 +129,7 @@
         // if NOT the same, do fail code
         } else {
             console.log("wrong");
+            playFail();
             $(".status").html("Oops!");
             $(".status2").html(" Try Again");
         }
@@ -133,7 +142,7 @@
         gameNum = 0;
         $(".status").html("");
         $(".status2").html("");
-        playSound();
+        playSuccess();
         coreGame();
     })
  })();
