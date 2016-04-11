@@ -33,32 +33,32 @@ p {
 #yellow {
     background: -webkit-radial-gradient(#d39c6f 5%, #c57a3e 15%, #b75a0f 60%); 
     border-radius: 66px 66px 5px 66px;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px #131313;
 }
 
 #red {
     background: -webkit-radial-gradient(#b66666 5%, #9e3232 15%, #860000 60%);
     border-radius: 66px 5px 66px 66px;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px #131313;
 }
 
 #blue {
     background: -webkit-radial-gradient(#79a5dd 5%, #4d87d2 15%, #216ac7 60%);
     border-radius: 66px 66px 66px 5px;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px #131313;
 }
 
 #green {
     background: -webkit-radial-gradient(#9dc78e 5%, #7cb469 15%, #5ca244 60%);
     border-radius: 5px 66px 66px 66px;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px #131313;
 }
 
 .box {
     display: inline-block;
     height: 150px;
     width: 150px;
-    border: 5px solid black;
+    border: 5px solid #131313;
 }
 
 .center {
@@ -71,13 +71,13 @@ p {
 }
 
 button {
-    border: 4px solid black;
+    border: 4px solid #131313;
     font-size: 32px;
     padding: 10px;
     background-color: #c1cacb;
     border-radius: 6px;
     text-shadow: 2px 2px 4px #9aa1a2;
-    box-shadow: 2px 2px 4px black;
+    box-shadow: 2px 2px 4px #131313;
 }
 
 .status, .status2 {
