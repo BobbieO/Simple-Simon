@@ -1,29 +1,31 @@
 body {
-    background-color: #c0c7c6;
+    font-family: "Euphoria Script", cursive, serif;
+    text-shadow: 2px 2px 4px #9aa1a2;
+    background: url(/img/stainedColumns.jpg) repeat center center fixed;
+    background-size: cover;
+}
+
+.alerts {
+    background-color: black;
+    opacity: 0.9;
+    width: 100%;
 }
 
 p {
     font-size: 3.5em;
     font-weight: bold;
+    color: #c1cacb;
+    text-shadow: 3px 3px 5px #131313;
 }
 
-.container {
-    font-family: "Euphoria Script", cursive, serif;
-    position: relative;
-    z-index: 1;
-    text-shadow: 2px 2px 4px #9aa1a2;
+.leftText {
+    border-radius: 2px 60px 2px 60px;
+    margin-top: 10px;
 }
 
-.container::before {
-    content: "";
-    background: url(/img/stainedColumns.jpg) no-repeat center;
-    height: 900px;
-    width: 100%;
-    opacity: 0.7;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: -1;
+.rightText {
+    margin-top: 10px;
+    border-radius: 60px 2px 60px 2px;
 }
 
 .space {
@@ -78,11 +80,5 @@ button {
     border-radius: 6px;
     text-shadow: 2px 2px 4px #9aa1a2;
     box-shadow: 2px 2px 4px #131313;
-}
-
-.status, .status2 {
-    text-align: right;
-    font-size: 2.5em;
-    font-weight: bold;
 }
 
