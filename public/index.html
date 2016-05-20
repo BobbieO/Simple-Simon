@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Simple Simon</title>
@@ -16,24 +15,20 @@
 
 <body>
 <div class="container">
-
     <div class="row">
-        <div class="col-md-4">
-            <p>Simple</p>
-            <p>Simon</p>
+        <div class="col-xs-4">
+            <p class="leftText alerts text-center">Simple Simon</p>
         </div>
 
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-xs-4 col-xs-offset-4">
             <div>
-                <p class="status"></p>
-                <p class="status2"></p>
+                <p class="rightText alerts status text-center"></p>
             </div>
         </div>
     </div>
     
-
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-xs-8 col-xs-offset-2">
             <div class="row btn-div center">
                 <button id="start">Start the Game</button>
             </div>
@@ -49,7 +44,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <audio preload="auto" id="beep">
@@ -60,96 +54,8 @@
     <source src="/sound/fail-trombone.mp3" type="audio/mpeg">
 </audio>
 
-
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/simpleSimon.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script type="text/javascript">
-(function(){
-"use strict";
-
-    // computer's lights
-    var sequence = [];
-
-    // variable to check against the sequence's index
-    var sequenceIndexCheck = 0;
-
-    // var for later grabbing all elements by class, click box; an array.
-    var boxes = $(".box");
-
-    // to play sound
-    function playSuccess() {
-        $("#beep")[0].play();
-    };
-
-    function playFail() {
-        $("#fail")[0].play();
-    }
-
-    var coreGame = function() {
-        // randomize a numerical value from 0-3
-        var random = Math.floor(Math.random()*4);
-            console.log(boxes[random]);
-
-        // to concatenate the lights on to each other
-        sequence.push(random);
-        
-        // local var
-        var index = 0;
-        var makeLights = setInterval(function() {
-            //sets fade in-out on the boxes
-            $(boxes[ sequence[index] ]).fadeOut();
-            $(boxes[ sequence[index] ]).fadeIn();
-            index++;
-
-            // stops the intervalling
-            if (index==sequence.length) {
-                clearInterval(makeLights);
-            }  
-        }, 1000);
-    };
-
-    // variable for game count
-    var gameNum = 0;
-    
-    // click listener for boxes
-    boxes.click(function() {
-        // if the computer-light-value-index is same as data-index-of-box-user-clicked,
-        // add more to lights
-        if (sequence[sequenceIndexCheck] == $(this).data("index") ){
-            playSuccess();
-            sequenceIndexCheck++;
-
-            // if same, run coreGame again, reset index for another iteration of lights
-            if (sequence.length == sequenceIndexCheck) {
-                coreGame();
-                sequenceIndexCheck = 0;
-                gameNum++;
-                $(".status").html("Success!");
-                $(".status2").html("Round " + gameNum);
-            };
-        // if NOT the same, do fail code
-        } else {
-            console.log("wrong");
-            playFail();
-            $(".status").html("Oops!");
-            $(".status2").html(" Try Again");
-            sequence = [];
-            sequenceIndexCheck = 0;
-            gameNum = 0;
-        }
-    });
-
-    // to start/restart game function when start button clicked
-    $("#start").click(function(event) { 
-        sequence = [];
-        sequenceIndexCheck = 0;
-        gameNum = 0;
-        $(".status").html("");
-        $(".status2").html("");
-        playSuccess();
-        coreGame();
-    })
- })();
- </script>
 </body>
 </html>
