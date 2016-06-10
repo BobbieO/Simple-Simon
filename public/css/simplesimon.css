@@ -34,6 +34,7 @@ p {
 
 #yellow {
     background: -webkit-radial-gradient(#d39c6f 5%, #c57a3e 15%, #b75a0f 60%); 
+    
     /*backup for older browsers*/
     background-color: #ee9922;
     border-radius: 66px 66px 5px 66px;
@@ -42,6 +43,7 @@ p {
 
 #red {
     background: -webkit-radial-gradient(#b66666 5%, #9e3232 15%, #860000 60%);
+    
     /*backup for older browsers*/
     background-color: #7f0000;
     border-radius: 66px 5px 66px 66px;
@@ -50,6 +52,7 @@ p {
 
 #blue {
     background: -webkit-radial-gradient(#79a5dd 5%, #4d87d2 15%, #216ac7 60%);
+    
     /*backup for older browsers*/
     background-color: #5482d7;
     border-radius: 66px 66px 66px 5px;
@@ -58,6 +61,7 @@ p {
 
 #green {
     background: -webkit-radial-gradient(#9dc78e 5%, #7cb469 15%, #5ca244 60%);
+    
     /*backup for older browsers*/
     background-color: #64a64d;
     border-radius: 5px 66px 66px 66px;
